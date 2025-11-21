@@ -20,7 +20,7 @@ app.post('/v1/chat/completions', (req, res) => {
     // Escape the user message to prevent command injection
     const escapedMessage = JSON.stringify(userMessage);
 
-    exec(`gemini -p ${escapedMessage}`, (error, stdout, stderr) => {
+    exec(`gemini --yolo -p ${escapedMessage}`, (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
             return res.status(500).json({ error: 'Failed to execute Gemini CLI' });
